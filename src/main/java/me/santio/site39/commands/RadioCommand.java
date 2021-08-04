@@ -1,5 +1,6 @@
 package me.santio.site39.commands;
 
+import me.santio.site39.Site39;
 import me.santio.site39.utils.RankUtils;
 import me.santio.site39.utils.TextUtils;
 import org.bukkit.Bukkit;
@@ -20,18 +21,18 @@ public class RadioCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if(!(player.hasPermission("site39.faculty"))) {
-            player.sendMessage(TextUtils.translateColor("&3Site-39 &8| &7You do not have permission to run this command."));
+            player.sendMessage(TextUtils.tacc(Site39.getPrefix() + "&7You do not have permission to run this command."));
             return true;
         }
 
         if(args.length < 1) {
-            player.sendMessage(TextUtils.translateColor("&3Site-39 &8| &e/radio <text>"));
+            player.sendMessage(Site39.getPrefix() + TextUtils.tacc("&e/radio <text>"));
             return true;
         }
         String message = String.join(" ", args);
         String color = RankUtils.getColor(player.getUniqueId());
         Bukkit.getOnlinePlayers().stream().filter((Player p) -> p.hasPermission("site39.faculty")).forEach((Player p) -> {
-            p.sendMessage(TextUtils.translateColor("&8[&3Radio&8] " + color + player.getName() + ": &7" + message));
+            p.sendMessage(TextUtils.tacc("&8[&3Radio&8] " + color + player.getName() + ": &7" + message));
         });
         return true;
     }
