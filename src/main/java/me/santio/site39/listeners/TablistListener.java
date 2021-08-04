@@ -1,6 +1,7 @@
 package me.santio.site39.listeners;
 
 import me.santio.site39.utils.RankUtils;
+import me.santio.site39.utils.TextUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,8 +27,8 @@ public class TablistListener implements Listener {
         Team team = scoreboard.getTeam(weightR + "-" + rank);
         if (team == null) team = scoreboard.registerNewTeam(weightR + "-" + rank);
         
-        team.setPrefix(RankUtils.getPrefix(rank));
-        event.getPlayer().setPlayerListName(RankUtils.getColor(event.getPlayer().getUniqueId())+event.getPlayer().getName());
+        team.setPrefix(TextUtils.tacc(RankUtils.getPrefix(rank) + "&8 | &7"));
+        event.getPlayer().setPlayerListName(TextUtils.tacc(RankUtils.getColor(event.getPlayer().getUniqueId())+event.getPlayer().getName()));
         
         team.addPlayer(event.getPlayer());
     }
