@@ -3,6 +3,7 @@ package me.santio.site39;
 import lombok.Getter;
 import me.santio.site39.commands.RadioCommand;
 import me.santio.site39.listeners.EventListener;
+import me.santio.site39.listeners.TablistListener;
 import net.luckperms.api.LuckPerms;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -19,11 +20,15 @@ public final class Site39 extends JavaPlugin {
         if(!getDataFolder().exists()) getDataFolder().mkdir();
 
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) { lpApi = provider.getProvider(); }
+        if (provider != null) {
+            lpApi = provider.getProvider();
+            getLogger().info("LuckPerms API connected!");
+        }
         else this.setEnabled(false);
         
-        getLogger().info("LuckPerms API connected!");
         getServer().getPluginManager().registerEvents(new EventListener(), this);
+        getServer().getPluginManager().registerEvents(new TablistListener(), this);
+        
         getCommand("radio").setExecutor(new RadioCommand());
     }
     
