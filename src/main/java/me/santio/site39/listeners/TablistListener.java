@@ -22,7 +22,7 @@ public class TablistListener implements Listener {
         String rank = RankUtils.getRank(event.getPlayer().getUniqueId());
         int weightR = 10000 - RankUtils.getWeight(rank);
     
-        Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
+        Scoreboard scoreboard = scoreboardManager.getMainScoreboard();
         Team team = scoreboard.getTeam(weightR + "-" + rank);
         if (team == null) team = scoreboard.registerNewTeam(weightR + "-" + rank);
         
