@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 @SuppressWarnings({"ResultOfMethodCallIgnored", "ConstantConditions"})
 public final class Site39 extends JavaPlugin {
     @Getter private static LuckPerms lpApi;
-    @Getter private final static String prefix = ChatColor.of("#0d5f8b") + "S" + ChatColor.of("#126390") + "i" + ChatColor.of("#176795") + "t" + ChatColor.of("#1b6a9a") + "e" + ChatColor.of("#1f6ea0") + "-" + ChatColor.of("#2372a5") + "3" + ChatColor.of("#2776aa") + "9" + ChatColor.DARK_GRAY + " | " + ChatColor.GRAY;
+    @Getter private final static String prefix = ChatColor.of("#227aa9") + "S" + ChatColor.of("#267dae") + "i" + ChatColor.of("#2a7fb3") + "t" + ChatColor.of("#2e82b8") + "e" + ChatColor.of("#3385bc") + "-" + ChatColor.of("#3787c1") + "3" + ChatColor.of("#3c8ac6") + "9" + ChatColor.DARK_GRAY + " | " + ChatColor.GRAY;
     
     @Override
     public void onEnable() {
