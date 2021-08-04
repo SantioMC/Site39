@@ -26,6 +26,9 @@ public class TablistListener implements Listener {
         Team team = scoreboard.getTeam(weightR + "-" + rank);
         if (team == null) team = scoreboard.registerNewTeam(weightR + "-" + rank);
         
+        team.setPrefix(RankUtils.getPrefix(rank));
+        event.getPlayer().setPlayerListName(RankUtils.getColor(event.getPlayer().getUniqueId())+event.getPlayer().getName());
+        
         team.addPlayer(event.getPlayer());
     }
     

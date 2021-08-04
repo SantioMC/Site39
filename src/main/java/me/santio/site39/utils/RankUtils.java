@@ -14,7 +14,15 @@ public class RankUtils {
         if (user == null) return null;
         return user.getCachedData().getMetaData().getPrimaryGroup();
     }
-
+    
+    public static String getPrefix(String rank) {
+        Group group = Site39.getLpApi().getGroupManager().getGroup(rank);
+        if (group == null) return "&7";
+        if (group.getCachedData().getMetaData().getPrefix() == null) return "&7";
+    
+        return group.getCachedData().getMetaData().getPrefix();
+    }
+    
     public static String getPrefix(UUID uuid) {
         User user = Site39.getLpApi().getUserManager().getUser(uuid);
         if (user == null) return null;
