@@ -32,7 +32,7 @@ public class RadioCommand implements CommandExecutor {
         String message = String.join(" ", args);
         String color = RankUtils.getColor(player.getUniqueId());
         Bukkit.getOnlinePlayers().stream().filter((Player p) -> p.hasPermission("site39.faculty")).forEach((Player p) -> {
-            p.sendMessage(TextUtils.tacc("&8[&3Radio&8] " + color + player.getName() + ": &3" + message));
+            p.sendMessage(TextUtils.tacc("&8[&3Radio&8] " + color + player.getName() + "&3: " + message));
         });
         return true;
     }
