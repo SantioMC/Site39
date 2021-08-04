@@ -10,18 +10,22 @@ public class RankUtils {
 
     public static String getRank(UUID uuid) {
         User user = Site39.getLpApi().getUserManager().getUser(uuid);
+        if (user == null) return null;
         return user.getCachedData().getMetaData().getPrimaryGroup();
     }
 
     public static String getPrefix(UUID uuid) {
         User user = Site39.getLpApi().getUserManager().getUser(uuid);
+        if (user == null) return null;
         if(user.getCachedData().getMetaData().getPrefix() == null) return "";
         return ChatColor.translateAlternateColorCodes('&', user.getCachedData().getMetaData().getPrefix());
     }
 
     public static String getSuffix(UUID uuid) {
         User user = Site39.getLpApi().getUserManager().getUser(uuid);
+        if (user == null) return null;
         if(user.getCachedData().getMetaData().getSuffix() == null) return "";
+        
         return ChatColor.translateAlternateColorCodes('&', user.getCachedData().getMetaData().getSuffix());
     }
 }

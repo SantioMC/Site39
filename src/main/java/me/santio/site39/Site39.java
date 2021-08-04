@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public final class Site39 extends JavaPlugin {
     @Getter private static LuckPerms lpApi;
     
@@ -16,8 +17,9 @@ public final class Site39 extends JavaPlugin {
 
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) { lpApi = provider.getProvider(); }
+        else this.setEnabled(false);
+        
         getLogger().info("LuckPerms API connected!");
-
         getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
     
