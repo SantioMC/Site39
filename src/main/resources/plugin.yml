@@ -1,6 +1,8 @@
 name: Site39
 version: ${project.version}
 main: me.santio.site39.Site39
-api-version: 1.17
+api-version: 1.16
 authors: [ Santio71, Soarz ]
 description: The main plugin for Site39
+depend:
+  - LuckPerms
