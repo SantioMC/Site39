@@ -16,13 +16,14 @@ public class EventListener implements Listener {
         Player player = event.getPlayer();
         String prefix = RankUtils.getPrefix(player.getUniqueId());
         String suffix = RankUtils.getSuffix(player.getUniqueId());
+        String color = player.hasPermission("site39.staff") ? "&f" : "&7";
         
         String message = event.getMessage();
         message = message.replaceAll("%", "%%");
 
         if (player.hasPermission("site39.staff")) message = TextUtils.tacc(message);
 
-        event.setFormat(TextUtils.tacc(prefix + "&8 | &7" + player.getDisplayName() + suffix + ": " + message));
+        event.setFormat(TextUtils.tacc(prefix + "&8 | "+ suffix +"&7" + player.getDisplayName() + color + ": " + message));
     }
 
     @EventHandler
