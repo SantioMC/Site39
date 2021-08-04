@@ -1,6 +1,7 @@
 package me.santio.site39;
 
 import lombok.Getter;
+import me.santio.site39.commands.RadioCommand;
 import me.santio.site39.listeners.EventListener;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -21,6 +22,7 @@ public final class Site39 extends JavaPlugin {
         
         getLogger().info("LuckPerms API connected!");
         getServer().getPluginManager().registerEvents(new EventListener(), this);
+        getCommand("radio").setExecutor(new RadioCommand());
     }
     
     @Override

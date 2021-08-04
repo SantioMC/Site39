@@ -6,3 +6,6 @@ authors: [ Santio71, Soarz ]
 description: The main plugin for Site39
 depend:
   - LuckPerms
+commands:
+  radio:
+    description: Radio Command for Faculty

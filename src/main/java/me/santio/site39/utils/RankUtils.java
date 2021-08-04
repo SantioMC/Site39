@@ -28,4 +28,13 @@ public class RankUtils {
         
         return ChatColor.translateAlternateColorCodes('&', user.getCachedData().getMetaData().getSuffix());
     }
+
+    public static String getColor(UUID uuid) {
+        User user = Site39.getLpApi().getUserManager().getUser(uuid);
+        if(user == null) return null;
+        if(user.getCachedData().getMetaData().getPrefix() == null) return "";
+        if(!user.getCachedData().getMetaData().getPrefix().startsWith("&")) return "";
+
+        return user.getCachedData().getMetaData().getPrefix().substring(0,2);
+    }
 }
