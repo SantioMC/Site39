@@ -2,7 +2,9 @@ package me.santio.site39;
 
 import lombok.Getter;
 import me.santio.site39.commands.RadioCommand;
+import me.santio.site39.database.Database;
 import me.santio.site39.listeners.EventListener;
+import me.santio.site39.listeners.RankListener;
 import me.santio.site39.listeners.TablistListener;
 import net.luckperms.api.LuckPerms;
 import net.md_5.bungee.api.ChatColor;
@@ -25,11 +27,17 @@ public final class Site39 extends JavaPlugin {
             getLogger().info("LuckPerms API connected!");
         }
         else this.setEnabled(false);
+
+        Database.connect();
+        getLogger().info("MongoDB connected!");
         
         getServer().getPluginManager().registerEvents(new EventListener(), this);
         getServer().getPluginManager().registerEvents(new TablistListener(), this);
+        new RankListener();
         
         getCommand("radio").setExecutor(new RadioCommand());
+
+        saveDefaultConfig();
     }
     
     @Override

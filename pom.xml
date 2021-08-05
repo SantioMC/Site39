@@ -88,5 +88,10 @@
             <artifactId>bungeecord-chat</artifactId>
             <version>1.16-R0.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.3.0</version>
+        </dependency>
     </dependencies>
 </project>

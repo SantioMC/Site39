@@ -21,7 +21,7 @@ public class RadioCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if(!(player.hasPermission("site39.faculty"))) {
-            player.sendMessage(TextUtils.tacc(Site39.getPrefix() + "&7You do not have permission to run this command."));
+            player.sendMessage(TextUtils.tacc(Site39.getPrefix() + "You do not have permission to run this command."));
             return true;
         }
 
